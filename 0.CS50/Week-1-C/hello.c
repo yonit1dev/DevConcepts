@@ -5,8 +5,12 @@
  * Prints out 'Hello, World!'
 */
 
-int main(void)
+int main(int argc, char const *argv[])
 {
+    
     // Statement to print hello, world!
     printf("Hello, World!\n");
+
+    return 0;
 }
+
