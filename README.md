@@ -1,2 +1,5 @@
 # Dev-Journey
-CS50x 2022 Learning Path.
+
+All steps I took an aspiring Software Engineer.
+
+Feel free to comment by creating an issue.
