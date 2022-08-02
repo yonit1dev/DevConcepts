@@ -6,10 +6,11 @@
  * 
  * discount : function to calculate discount
  * regular : initial price.
- * sale: final price
+ * percentage : the discount percent.
+ * sale: final price.
  */
 
-float discount(float price);
+float discount(float price, float percentage);
 
 int main(int argc, char const *argv[])
 {
@@ -18,14 +19,14 @@ int main(int argc, char const *argv[])
     printf("Regular Price: ETB ");
     scanf("%f", &regular);
 
-    float sale = discount(regular);
+    float sale = discount(regular, 15);
 
     printf("Sale Price: ETB %.2f\n", sale);
 
     return 0;
 }
 
-float discount(float price)
+float discount(float price, float percentage)
 {
-    return price * 0.85;
+    return (price * ((100 - percentage) / 100));
 }
