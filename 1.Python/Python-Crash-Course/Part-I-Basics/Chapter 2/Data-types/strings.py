@@ -1,5 +1,3 @@
-# Different data-types that exist in python.
-
 # Strings - anything with a single or double quote around it is a string
 
 from numpy import full
@@ -31,3 +29,11 @@ print("\n")
 
 print("\tPython") # Tab
 print("Languages:\nPython\nC\nJavaScript") # Newline character
+
+# Stripping Whitespace
+favorite_language = 'python '
+print(favorite_language)
+print(favorite_language.rstrip()) # Strip the whitespace on the right of the string temporarily
+favorite_language=  ' python'
+print(favorite_language)
+print(favorite_language.lstrip()) # Strip the whitespace on the left of the string temporarily
