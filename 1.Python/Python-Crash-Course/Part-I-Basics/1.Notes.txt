@@ -1,0 +1,7 @@
+# Notes
+
+Naming and Using Variables: 
+	1. Variable names can only contain letters, numbers and underscores. They can only begin with an underscore or a letter.
+	2. Spaces are not allowed. Use underscore to separate words.
+	3. Python keywords and function names can't be used as variable names.
+	4. Use DESCRIPTIVE variable names.
