@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 /* 
  * Problem Set 1 : Solution to the Credit question.
@@ -7,53 +8,26 @@
  */
 
 long ask_input(void);
-int luhn_algo(long credit_number);
-int get_len_int(int number);
+bool check_luhan_algo(long credit_card);
+int check_length(long credit_card);
 
 int main(int argc, char const *argv[])
 {
-    long credit_card = ask_input();
-    
-    return 0;
-}
-
-int get_len_int(int number)
-{
-    int length = 1;
-
-    while (number > 9)
+    if ()
     {
-        length++;
-
-        number /= 10;
+        printf("Mastercard!");
     }
-
-    return length;
-}
-
-long ask_input(void)
-{
-
-    long number;
-
-    printf("Number: ");
-    scanf("%li", &number);
-
-    int length = get_len_int(number);
-
-    printf("%i\n", length);
-
-    if (length < 13 || length > 16)
+    else if ()
     {
-        return 0;
+        printf("Visa!");
     }
-    else{
-        return number;
+    else if ()
+    {
+        printf("American Express!");
     }
-}
-
-int luhn_algo(long credit_number)
-{
+    else
+    {
+        printf("Invalid Card Number!");
+    }
     return 0;
-
 }
