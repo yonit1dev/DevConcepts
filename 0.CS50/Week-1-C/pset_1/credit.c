@@ -1,33 +1,55 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-/* 
- * Problem Set 1 : Solution to the Credit question.
- * It asks to implement checker for credit card numbers.
- * 
- */
-
-long ask_input(void);
-bool check_luhan_algo(long credit_card);
-int check_length(long credit_card);
-
 int main(int argc, char const *argv[])
 {
-    if ()
+    long long cc_number;
+
+    printf("Credit Card Number: ");
+    scanf("%lld", &cc_number);
+
+    int length = 0, sum_second_to_last = 0, sum_rest_digits = 0, last_digit = 0, second_digit = 0;
+
+    while (cc_number)
     {
-        printf("Mastercard!");
+        second_digit = last_digit;
+        last_digit = cc_number % 10;
+
+        if(length % 2 == 0)
+        {
+            sum_rest_digits += last_digit;
+        }
+        else
+        {
+            int multiple = 2 * last_digit;
+            sum_second_to_last += (multiple % 10) + (multiple / 10);
+        }
+
+        length++;
+        cc_number /= 10;
     }
-    else if ()
+
+    if (((sum_rest_digits + sum_second_to_last) % 10) == 0)
     {
-        printf("Visa!");
-    }
-    else if ()
-    {
-        printf("American Express!");
+        int first_digits = (last_digit * 10) + second_digit;
+
+        if(first_digits > 50 && first_digits < 56 && length == 16)
+        {
+            printf("Mastercard!\n");
+        }
+        else if(last_digit == 4 && length >= 13 && length <= 16)
+        {
+            printf("Visa!\n");
+        }
+        else
+        {
+            printf("American Express!\n");
+        }
     }
     else
     {
-        printf("Invalid Card Number!");
+        printf("Invalid!\n");
     }
+
     return 0;
 }
