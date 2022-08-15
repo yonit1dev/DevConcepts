@@ -1,9 +1,6 @@
 # Exercises in Chapter - 5
 
 # Exercise 5-1: Conditional tests - only for 4 tests done
-from math import factorial
-
-
 destinations = ['Istanbul', 'Dubai', 'Bali']
 print("Is Addis Ababa in destinations? I predict False.")
 print('Hawassa' in destinations)
