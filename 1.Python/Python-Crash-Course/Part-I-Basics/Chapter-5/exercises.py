@@ -14,6 +14,8 @@ print('Istanbul' in destinations)
 print("Is Bali in destinations? I predict True.")
 print('Bali' in destinations)
 
+print("\n")
+
 # Exercise 5-2: More Conditional tests - Building upon the above exercise.
 
 # Exercise 5-3: Alien Colors #1
@@ -72,5 +74,51 @@ if 'blueberry' in favorite_fruits:
 if 'pineapple' in favorite_fruits:
     print("You love pineapple.")
 
+print("\n")
 
+# Exercise 5-8: Hello Admin
+username = ['user1', 'admin', 'user3', 'user4', 'user5']
 
+for user in username:
+    if user == 'admin':
+        print("Hello " + str(user) + ", would you like a status report?")
+    else:
+        print("Hello " + user + ".")
+
+print("\n")
+
+# Exercise 5-9: No Users
+username = []
+
+if username:
+    for user in username:
+        if user == 'admin':
+            print("Hello " + str(user) + ", would you like a status report?")
+        else:
+            print("Hello " + user + ".")
+else:
+    print("We need to find some users!")
+
+# Exercise 5-10: Checking usernames
+current_users = ['root_user', 'first_user', 'special_user', 'person_user', 'person_user']
+
+new_users = ['hello_user', 'person_user', 'another_user', 'zero_user', 'first_user']
+
+for new_user in new_users:
+    if new_user.lower() in current_users:
+        print("Please choose another username.")
+    else:
+        print("Username available. " + str(new_user))
+
+# Exercise 5-11: Ordinal Numbers
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+for number in numbers:
+    if number == 1:
+        print('1st')
+    elif number == 2:
+        print('2nd')
+    elif number == 3:
+        print('3rd')
+    else:
+        print(str(number) + "th")
