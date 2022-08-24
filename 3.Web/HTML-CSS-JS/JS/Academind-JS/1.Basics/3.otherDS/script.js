@@ -12,6 +12,7 @@ console.log("Connected!");
 const defaultResult = 0; // Initial Value
 let currentResult = defaultResult;
 let calcDescription = "Start Calculating!"; // Initial Message
+let logEntries = [];
 
 outputResult(currentResult, calcDescription); // Initial Output
 
@@ -21,62 +22,68 @@ function getUserInput() {
 }
 
 // Reset input value
-function resetValue(){
-    userInput.value=  "";
+function resetValue() {
+  userInput.value = "";
 }
 
 // Construct output message function
-function createOutputMessage(currentResult, operator, userInput){
-    return `${currentResult} ${operator} ${userInput}`;
+function createOutputMessage(
+  initialResult,
+  currentResult,
+  operator,
+  userInput
+) {
+  outputResult(currentResult, `${initialResult} ${operator} ${userInput}`);
 }
 
 function add() {
   const enteredNumber = getUserInput();
-
-  calcDescription = createOutputMessage(currentResult, '+', enteredNumber);
-
+  const initialResult = currentResult;
   currentResult += enteredNumber;
-  resetValue();
 
-  outputResult(currentResult, calcDescription);
+  createOutputMessage(initialResult, currentResult, "+", enteredNumber);
+
+  resetValue();
 }
 
 function subtract() {
   const enteredNumber = getUserInput();
-
-  calcDescription = createOutputMessage(currentResult, '-', enteredNumber);
+  const initialResult = currentResult;
 
   currentResult -= enteredNumber;
-  resetValue();
 
-  outputResult(currentResult, calcDescription);
+  createOutputMessage(initialResult, currentResult, "-", enteredNumber);
+
+  resetValue();
 }
 
 function multiply() {
   const enteredNumber = getUserInput();
-
-  calcDescription = createOutputMessage(currentResult, '*', enteredNumber);
+  const initialResult = currentResult;
 
   currentResult *= enteredNumber;
-  resetValue();
 
-  outputResult(currentResult, calcDescription);
+  createOutputMessage(initialResult, currentResult, "*", enteredNumber);
+
+  resetValue();
 }
 
 function divide() {
   const enteredNumber = getUserInput();
+  const initialResult = currentResult;
 
   if (enteredNumber === 0) {
     resetValue();
-    outputResult(NaN, 'Division by 0 is invalid!');
+    outputResult(NaN, "Division by 0 is invalid!");
     return;
   } else {
-    calcDescription = createOutputMessage(currentResult, '/', enteredNumber);
+    calcDescription = createOutputMessage(currentResult, "/", enteredNumber);
 
     currentResult /= enteredNumber;
-    resetValue();
 
-    outputResult(currentResult, calcDescription);
+    createOutputMessage(initialResult, currentResult, "/", enteredNumber);
+
+    resetValue();
   }
 }
 
