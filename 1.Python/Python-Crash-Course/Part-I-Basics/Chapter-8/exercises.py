@@ -108,3 +108,109 @@ while True:
         continue
     elif (user_continue.lower() == "no"):
         break
+
+# Exercise 8-9: Magicians
+
+magician_names = ['Houdini', 'The Magician', 'Alex Angel']
+
+def show_magicians(magicians):
+    for magician in magicians:
+        print(magician.title())
+
+show_magicians(magician_names)
+
+# Exercise 8-10: Great Magicians
+
+def make_great(magicians):
+    for i in range(len(magicians)):
+        magicians[i] = 'the Great ' + str(magicians[i])
+
+def show_magicians(magicians):
+    for magician in magicians:
+        print(magician.title())
+
+magician_names = ['Houdini', 'Magician', 'Alex Angel']
+
+make_great(magician_names)
+
+show_magicians(magician_names)
+
+# Exercise 8-11: Unchanged Magicians
+
+def make_great_changed(magicians):
+    new_great_magician = []
+
+    for i in range(len(magicians)):
+        new_great_magician.append('the Great ' + str(magicians[i]))
+    
+    return new_great_magician
+
+def show_magicians_vary(magicians):
+    for magician in magicians:
+        print(magician.title())
+
+magician_names = ['Houdini', 'Magician', 'Alex Angel']
+magician_names_great = make_great_changed(magician_names[:])
+
+show_magicians_vary(magician_names)
+show_magicians_vary(magician_names_great)
+
+# Exercise 8-12: Sandwiches
+
+def make_sandwiches(*contents):
+    print("\nMaking a sandwich with: ")
+    for content in contents:
+        print("- " + str(content))
+
+make_sandwiches("Cheese", "Meat")
+make_sandwiches("Chicken")
+make_sandwiches("Mayo", "Ketchup", "Salad")
+
+# Exercise 8-13: User Profile
+
+def build_profile(first, last, **user_info):
+    """Create's a dictionary about a user's info"""
+    profile = {}
+    profile['first_name'] = first.title()
+    profile['last_name'] = last.title()
+
+    for key, value in user_info.items():
+        if type(value) == type(""):  
+            value = value.title()
+        
+        profile[key] = value
+
+    
+    return profile
+
+myself = build_profile("yonathan", "anosie", address='addis ababa', age=21, skin_color="dark brown")
+
+print(myself)
+
+# Exercise 8-14: Cars
+
+def car_info(manufacturer, model_name, **info):
+    """Creates a dictionary about a car's properties"""
+    car = {}
+    car['Manufacturer'] = manufacturer.title()
+    car['Model'] = model_name
+
+
+    for key, value in info.items():
+        if type(value) == type(""):  
+            value = value.title()
+        
+        car[key] = value
+
+    
+    return car
+
+toyota = car_info("toyota", "yaris-compact", year=2010)
+subaru = car_info("Subaru", "outback", color="blue", tow_package=True)
+hyundai = car_info("hyundai", "tucson", year=2022, color="grey")
+
+print(toyota)
+print(subaru)
+print(hyundai)
+
+# Other exercises are easy and straightforward
