@@ -51,7 +51,7 @@ function calculateResult(calculationType) {
     currentResult *= enteredNumber;
     mathOperator = "*";
   } else if (calculationType === "divide") {
-    if (enteredNumber === 0) {
+    if (!enteredNumber) {
       resetValue();
       outputResult(NaN, "Division by 0 is invalid!");
       return;

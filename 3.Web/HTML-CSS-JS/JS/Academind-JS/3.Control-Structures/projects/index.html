@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Killer</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <script src="./assets/scripts/app.js" defer></script>
+    <script src="./assets/scripts/script.js" defer></script>
+  </head>
+  <body>
+    <section class="health centered centered-content">
+      <div class="monster text-center">
+        <h3>MONSTER HEALTH</h3>
+        <progress
+        class="health-bar"
+          id="monster-bar"
+          max="100"
+          value="100"
+        ></progress>
+      </div>
+      <div class="player text-center">
+        <h3>PLAYER HEALTH <span id="bonus-life">1</span></h3>
+        <progress
+        class="health-bar"
+          id="player-bar"
+          max="100"
+          value="100"
+        ></progress>
+      </div>
+    </section>
+    <section class="commands centered centered-content">
+      <div id="attack">ATTACK</div>
+      <div id="strong-attack">STRONG ATTACK</div>
+      <div id="heal">HEAL</div>
+      <div id="show-log">SHOW LOG</div>
+    </section>
+  </body>
+</html>
