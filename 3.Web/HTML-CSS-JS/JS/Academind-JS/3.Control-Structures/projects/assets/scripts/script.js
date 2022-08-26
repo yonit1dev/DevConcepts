@@ -5,6 +5,15 @@ const STRONG_ATTACK_VALUE = 16;
 const MONSTER_ATTACK_VALUE = 12;
 const HEAL_VALUE = 15;
 
+// Way of declaring enums in js since it doesn't have native support for enums. Supported in TS.
+const typeofAttack = {
+  normal: "normal",
+  strong: "strong",
+};
+
+let bonus_life = 1;
+let hasBonusLife = true;
+
 const enteredLife = prompt(
   "Maximum life for you and the monster. Default is a 100."
 );
@@ -12,11 +21,13 @@ const enteredLife = prompt(
 let chosenMaxLife = parseInt(enteredLife);
 if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) chosenMaxLife = 100;
 
-let bonus_life = 1;
 let activeMonsterHealth = chosenMaxLife;
 let activePlayerHealth = chosenMaxLife;
-let hasBonusLife = true;
 
+let playerWins = 0;
+let monsterWins = 0;
+
+// Initialize or Reset Game.
 resetGame();
 
 function resetGame() {
@@ -27,41 +38,43 @@ function resetGame() {
 
   adjustHealthBars(chosenMaxLife);
 
-  setHealthText(monsterHealthText, activeMonsterHealth);
-  setHealthText(playerHealthText, activePlayerHealth);
+  monsterHealthText.textContent = activeMonsterHealth;
+  playerHealthText.textContent = activePlayerHealth;
 }
 
 function setHealthText(actor, value) {
+  if (+value <= 0) {
+    actor.textContent = 0;
+  }
   actor.textContent = Math.round(value);
 }
 
 function checkWin() {
   if (activeMonsterHealth <= 0 && activePlayerHealth > 0) {
     alert("You've won!");
+    playerWins += 1;
     setHealthText(monsterHealthText, 0);
-    return;
   } else if (activePlayerHealth <= 0 && activeMonsterHealth > 0) {
     alert("You've lost!");
+    monsterWins += 1;
     setHealthText(playerHealthText, 0);
-    return;
   } else if (activeMonsterHealth <= 0 && activePlayerHealth <= 0) {
     alert("A Draw!");
     setHealthText(monsterHealthText, activeMonsterHealth);
     setHealthText(playerHealthText, activePlayerHealth);
-    return;
   }
 }
 
 function attackHandler(mode) {
-  if (mode === "attack") {
+  if (mode === "normal") {
     const damage = damageActor(ATTACK_VALUE, monsterHealth);
     activeMonsterHealth -= damage;
+    setHealthText(monsterHealthText, activeMonsterHealth);
   } else if (mode === "strong") {
     const damage = damageActor(STRONG_ATTACK_VALUE, monsterHealth);
     activeMonsterHealth -= damage;
+    setHealthText(monsterHealthText, activeMonsterHealth);
   }
-
-  setHealthText(monsterHealthText, activeMonsterHealth);
 
   checkWin();
 
@@ -94,12 +107,16 @@ function addLife() {
   }
 }
 
+function showLog() {
+  alert(`Player : ${playerWins} wins!\nMonster : ${monsterWins} wins!`);
+}
+
 attackBtn.addEventListener("click", () => {
-  attackHandler("attack");
+  attackHandler(typeofAttack.normal);
 });
 
 strongAttackBtn.addEventListener("click", () => {
-  attackHandler("strong");
+  attackHandler(typeofAttack.strong);
 });
 
 healBtn.addEventListener("click", healHandler);
@@ -107,3 +124,5 @@ healBtn.addEventListener("click", healHandler);
 bonusLife.addEventListener("click", addLife);
 
 resetBtn.addEventListener("click", resetGame);
+
+showLogBtn.addEventListener("click", showLog);
