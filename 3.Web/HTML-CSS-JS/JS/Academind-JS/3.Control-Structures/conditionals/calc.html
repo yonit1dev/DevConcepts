@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unconventional Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="vendor.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header-text">
+      <h2>The Unconventional Calculator</h2>
+    </header>
+    <main>
+      <section class="calc-section center-element flex">
+        <div>
+          <input type="number" name="" id="input-number" />
+        </div>
+
+        <div id="operators">
+          <button type="button" id="btn-add">Add</button>
+          <button type="button" id="btn-subtract">Sub</button>
+          <button type="button" id="btn-multiply">Mult</button>
+          <button type="button" id="btn-divide">Div</button>
+        </div>
+      </section>
+      <section class="result-section center-element">
+        <p id="current-calculation"></p>
+        <p style="font-size: 1.5rem; color: #000033">
+          Result: <span id="current-result"></span>
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
