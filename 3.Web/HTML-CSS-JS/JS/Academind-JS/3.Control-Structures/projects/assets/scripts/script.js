@@ -14,12 +14,30 @@ const typeofAttack = {
 let bonus_life = 1;
 let hasBonusLife = true;
 
-const enteredLife = prompt(
-  "Maximum life for you and the monster. Default is a 100."
-);
+function getMaxLifeValues() {
+  const enteredLife = prompt(
+    "Maximum life for you and the monster. Default is a 100."
+  );
 
-let chosenMaxLife = parseInt(enteredLife);
-if (isNaN(chosenMaxLife) || chosenMaxLife <= 0) chosenMaxLife = 100;
+  const parsedValue = parseInt(enteredLife);
+
+  if (isNaN(parsedValue) || parsedValue <= 0) {
+    throw "Invalid input!";
+  }
+
+  return parsedValue;
+}
+
+let chosenMaxLife;
+
+try {
+  chosenMaxLife = getMaxLifeValues();
+} catch (error) {
+  console.log(error);
+  chosenMaxLife = 100;
+} finally {
+  console.log("In the finally!");
+}
 
 let activeMonsterHealth = chosenMaxLife;
 let activePlayerHealth = chosenMaxLife;
@@ -28,7 +46,7 @@ let playerWins = 0;
 let monsterWins = 0;
 
 function resetGame() {
-  bonusLife.textContent = +bonus_life;
+  bonus_life.textContent = +bonus_life;
 
   activeMonsterHealth = chosenMaxLife;
   activePlayerHealth = chosenMaxLife;
