@@ -27,9 +27,6 @@ let activePlayerHealth = chosenMaxLife;
 let playerWins = 0;
 let monsterWins = 0;
 
-// Initialize or Reset Game.
-resetGame();
-
 function resetGame() {
   bonusLife.textContent = +bonus_life;
 
@@ -42,12 +39,8 @@ function resetGame() {
   playerHealthText.textContent = activePlayerHealth;
 }
 
-function setHealthText(actor, value) {
-  if (+value <= 0) {
-    actor.textContent = 0;
-  }
-  actor.textContent = Math.round(value);
-}
+// Initialize or Reset Game.
+resetGame();
 
 function checkWin() {
   if (activeMonsterHealth <= 0 && activePlayerHealth > 0) {
@@ -66,15 +59,12 @@ function checkWin() {
 }
 
 function attackHandler(mode) {
-  if (mode === "normal") {
-    const damage = damageActor(ATTACK_VALUE, monsterHealth);
-    activeMonsterHealth -= damage;
-    setHealthText(monsterHealthText, activeMonsterHealth);
-  } else if (mode === "strong") {
-    const damage = damageActor(STRONG_ATTACK_VALUE, monsterHealth);
-    activeMonsterHealth -= damage;
-    setHealthText(monsterHealthText, activeMonsterHealth);
-  }
+  const damage =
+    mode === typeofAttack.normal
+      ? damageActor(ATTACK_VALUE, monsterHealth)
+      : damageActor(STRONG_ATTACK_VALUE, monsterHealth);
+  activeMonsterHealth -= damage;
+  setHealthText(monsterHealthText, activeMonsterHealth);
 
   checkWin();
 
@@ -82,7 +72,6 @@ function attackHandler(mode) {
   activePlayerHealth -= playerDamage;
   setHealthText(playerHealthText, activePlayerHealth);
 }
-
 function healHandler(healValue = 0) {
   if (activePlayerHealth >= chosenMaxLife - HEAL_VALUE) {
     alert("You can't replenish more than your max health(100)!");
@@ -105,6 +94,12 @@ function addLife() {
   } else {
     alert("You've no bonus life!");
   }
+}
+function setHealthText(actor, value) {
+  if (+value <= 0) {
+    actor.textContent = 0;
+  }
+  actor.textContent = Math.round(value);
 }
 
 function showLog() {
