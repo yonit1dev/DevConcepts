@@ -12,21 +12,21 @@ console.log(numberTwo);
 
 // Reference variables store a reference to the memory location.
 
-let oneObject = {name: 'Yoni'};
+let oneObject = { name: "Yoni" };
 let anotherObj = oneObject;
 console.log(oneObject, anotherObj);
 
 oneObject.age = 21;
 console.log(oneObject, anotherObj);
 
-oneObject.name = 'Max';
+oneObject.name = "Max";
 console.log(oneObject, anotherObj);
 
-let hobbies = ['Programming', 'Exercise'];
+let hobbies = ["Programming", "Exercise"];
 let newHobbies = hobbies;
 console.log(hobbies, newHobbies);
 
-hobbies.push('Reading');
+hobbies.push("Reading");
 console.log(hobbies, newHobbies);
 
 // One solution is the spread operator
@@ -34,6 +34,5 @@ console.log(hobbies, newHobbies);
 let otherHobbies = [...hobbies];
 console.log(hobbies, otherHobbies);
 
-hobbies.push('Hobby');
+hobbies.push("Hobby");
 console.log(hobbies, otherHobbies);
-

@@ -47,4 +47,9 @@
 ## Primitive vs Reference Types / Values
 - Primitive are data types such as strings, numbers, booleans, null, undefined and symbol. They're usually stored and managed in the stack.
 - A primitive variable stores the value of the primitive itself. When copying a variable to another variable, the value itself is copied.
+
 - Reference types are all objects. They store a reference to a memory location. They don't house the value but a memory address.
+
+## Memory Leaks
+- When objects aren't in use but some other part of the code has a refernce to it.
+- The garabage collector can't clean / free up memory in this situation.

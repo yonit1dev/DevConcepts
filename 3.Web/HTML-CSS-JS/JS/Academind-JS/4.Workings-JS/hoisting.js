@@ -10,4 +10,4 @@ console.log(anotherName);
 let anotherName = "Person"; // throws uninitialized error.
 
 // To have more control of variable declaration, turn on stric mode.
-// "use strict"; - to enable strict mode. 
+// "use strict"; - to enable strict mode.
