@@ -1,27 +1,25 @@
 const title = document.getElementById("main-title");
-console.log(title.textContent);
-
-title.textContent = "Changed Header!";
-console.log(title.textContent);
-
 console.dir(title);
+console.log(title.textContent);
+console.log(title.className); // Empty now
 
-const listItems = document.getElementsByClassName("list-item"); // Old way
+title.className = "title";
+console.log(title.className);
 
-for (let list of listItems) {
-  console.log(list.textContent);
+// Applying style to nodes
+title.style.color = "pink";
+title.style.backgroundColor = "black";
+title.style.padding = "1.5rem";
+title.style.borderRadius = "12px";
+
+const input = document.querySelector("input");
+console.log(input.value);
+
+input.value = "Some other input";
+console.log(input.value);
+
+const allLis = document.getElementsByTagName("li");
+
+for (const listItem of allLis) {
+  console.dir(listItem);
 }
-
-console.dir(listItems);
-
-const query = document.querySelectorAll(".list-item"); // Modern way
-
-console.dir(query);
-
-const displayBtn = document.getElementById("display-btn");
-const secondTitle = document.getElementById("second-title");
-
-displayBtn.addEventListener("click", () => {
-  secondTitle.style.display = "block";
-  secondTitle.textContent = "Button Clicked";
-});
