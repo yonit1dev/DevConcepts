@@ -45,12 +45,20 @@ ul.innerHTML += '<li class="list-item">Item 4</li>'; // performance intensive si
 ul.insertAdjacentHTML("beforeend", '<li class="list-item">Item 5</li>'); // doesn't render every inner element.
 
 // Reusable way of creating interactable DOM elements
-const newLi = document.createElement('li');
-newLi.textContent = 'Item 6';
+const newLi = document.createElement("li");
+newLi.textContent = "Item 6";
 ul.appendChild(newLi);
 
-const insertLi = document.createElement('li');
-insertLi.textContent = 'Item middle';
-ul.lastElementChild.before (insertLi);
+// Creating and inserting elements
+const insertLi = document.createElement("li");
+insertLi.textContent = "Item middle";
+ul.lastElementChild.before(insertLi);
 
 ul.firstElementChild.replaceWith(insertLi);
+
+const newInsertLi = insertLi.cloneNode(true);
+ul.appendChild(newInsertLi);
+
+// Removing nodes from the document
+ul.remove();
+ul.parentElement.removeChild(ul);
