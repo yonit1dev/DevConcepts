@@ -34,3 +34,24 @@ const sum = prices.reduce((prevValue, curValue) => {
 }, 0);
 
 console.log(sum);
+
+// Split method
+const data = "new york;10.99;2000";
+
+let transformedData = data
+  .split(";")
+  .map((value) => (isNaN(+value) ? value : +value));
+/*
+ * Splitting the string using the semi-colon matching character and converting numbers to their type using map method.
+ */
+
+console.log(transformedData);
+
+// Join method
+const nameFragements = ["Yonathan", "Tessema"];
+const name = nameFragements.join(" ");
+/*
+ * Joins the elements of an array into one string using the separator character specified as arguments. It transforms everything into string.
+ */
+
+console.log(name);
