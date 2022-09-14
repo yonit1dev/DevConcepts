@@ -11,15 +11,22 @@ function clearInputs(...inputs) {
   }
 }
 
-function renderMovie(movie) {
-  if (movies.length === 0) {
+function renderMovie(moviesList, movie) {
+  if (moviesList.length === 0) {
     movieList.classList.remove("visible");
   } else {
     movieList.classList.add("visible");
   }
 
   const movieEl = document.createElement("li");
-  movieEl.textContent = movie.info.title;
+  let text = movie.info.title + "-";
+
+  for (const key in movie.info) {
+    if (key !== "title") {
+      text += `${key} : ${movie.info[key]}`;
+    }
+  }
+  movieEl.textContent = text;
   movieList.append(movieEl);
 }
 
@@ -37,9 +44,28 @@ function addMovieHandler() {
   };
 
   movies.push(newMovie);
-  renderMovie(newMovie);
+  renderMovie(movies, newMovie);
 
   clearInputs(movieTitle, extraName, extraValue);
 }
 
+function searchMovieHandler() {
+  const filterText = document.getElementById("filter-title").value;
+  let searchResults = [];
+
+  if (filterText) {
+    searchResults = movies.filter((movie) =>
+      movie.info.title.includes(filterText)
+    );
+  } else {
+    searchResults = movies;
+  }
+
+  movieList.innerHTML = "";
+  for (const foundMovie of searchResults) {
+    renderMovie(searchResults, foundMovie);
+  }
+}
+
 addMovieBtn.addEventListener("click", addMovieHandler);
+searchBtn.addEventListener("click", searchMovieHandler);
