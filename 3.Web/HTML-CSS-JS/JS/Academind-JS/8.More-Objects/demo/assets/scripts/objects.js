@@ -19,11 +19,12 @@ function renderMovie(moviesList, movie) {
   }
 
   const movieEl = document.createElement("li");
-  let text = movie.info.title + "-";
+  const { info } = movie;
+  let text = info.title + "-";
 
-  for (const key in movie.info) {
+  for (const key in info) {
     if (key !== "title") {
-      text += `${key} : ${movie.info[key]}`;
+      text += `${key} : ${info[key]}`;
     }
   }
   movieEl.textContent = text;
@@ -36,7 +37,7 @@ function addMovieHandler() {
   const extraValue = document.getElementById("extra-value");
 
   const newMovie = {
-    id: (Math.random() * 10).toFixed(1),
+    id: (Math.random() * 10).toFixed(1).toString(),
     info: {
       title: movieTitle.value,
       [extraName.value]: extraValue.value,
