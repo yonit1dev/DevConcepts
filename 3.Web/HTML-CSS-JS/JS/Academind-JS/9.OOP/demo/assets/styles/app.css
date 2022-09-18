@@ -27,6 +27,9 @@ header h1 {
   color: white;
   font-size: 2rem;
 }
+h4 {
+  color: #790fa3;
+}
 
 button {
   background: #540075;
@@ -48,10 +51,10 @@ button:active {
   border-color: #790fa3;
 }
 
-.flex{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cart {
