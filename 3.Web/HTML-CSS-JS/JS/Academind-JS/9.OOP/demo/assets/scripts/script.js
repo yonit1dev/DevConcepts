@@ -8,20 +8,32 @@ class Product {
   }
 }
 
+class ElementAttribute {
+  constructor(attrName, attrValue) {
+    this.name = attrName;
+    this.value = attrValue;
+  }
+}
+
 class Component {
-  constructor(renderHookID) {
+  constructor(renderHookID, shouldRender = true) {
     this.hook = document.getElementById(renderHookID);
+    if (shouldRender) {
+      this.render();
+    }
   }
 
-  createRootEl(tag, classNames) {
+  render() {}
+
+  createRootEl(tag, classNames, attributes) {
     const rootEl = document.createElement(tag);
     rootEl.className = classNames || "";
 
-    // if (attributes && attributes.length > 0) {
-    //   for (const attribute of attributes) {
-    //     rootEl.setAttribute(attribute.name, attribute.value);
-    //   }
-    // }
+    if (attributes && attributes.length > 0) {
+      for (const attr of attributes) {
+        rootEl.setAttribute(attr.name, attr.value);
+      }
+    }
 
     this.hook.append(rootEl);
     return rootEl;
@@ -30,15 +42,16 @@ class Component {
 
 class ProductItem extends Component {
   constructor(hookID, product) {
-    super(hookID);
+    super(hookID, false);
     this.product = product;
+    this.render();
   }
 
   addToCart() {
     App.addProductToCart(this.product);
   }
 
-  renderItem() {
+  render() {
     const productEl = this.createRootEl("li", "product-item");
     productEl.innerHTML = `
           <div>
@@ -53,46 +66,60 @@ class ProductItem extends Component {
       `;
     const addToCartBtn = productEl.querySelector("button");
     addToCartBtn.addEventListener("click", this.addToCart.bind(this));
-    return productEl;
   }
 }
 
 class ProductList extends Component {
+  #products = [];
+
   constructor(hookID) {
     super(hookID);
+    this.fetchProducts();
   }
-  products = [
-    new Product(
-      "A Pillow",
-      "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
-      9.99,
-      "A Soft Pillow"
-    ),
-    new Product(
-      "A Carpet",
-      "https://images.unsplash.com/photo-1603913996638-c01100417b4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-      89.99,
-      "A Carpet which you might like - or not."
-    ),
-  ];
 
-  renderList() {
-    const prodList = this.createRootEl("ul", "product-list flex");
-    for (const product of this.products) {
-      const productItem = new ProductItem("app", product);
-      const prodEl = productItem.renderItem();
-      prodList.append(prodEl);
+  fetchProducts() {
+    this.#products = [
+      new Product(
+        "A Pillow",
+        "https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80",
+        9.99,
+        "A Soft Pillow"
+      ),
+      new Product(
+        "A Carpet",
+        "https://images.unsplash.com/photo-1603913996638-c01100417b4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
+        89.99,
+        "A Carpet which you might like - or not."
+      ),
+    ];
+    this.renderProducts();
+  }
+
+  renderProducts() {
+    for (const product of this.#products) {
+      new ProductItem("prod-list", product);
+      //   const productItem = new ProductItem("app", product);
+      //   const prodEl = productItem.renderItem();
+      //   prodList.append(prodEl);
+      //   prodList.append(new ProductItem("app", product));
     }
+  }
 
-    return prodList;
+  render() {
+    this.createRootEl("ul", "product-list flex", [
+      new ElementAttribute("id", "prod-list"),
+    ]);
+    if (this.products && this.products.length > 0) {
+      this.renderProducts();
+    }
   }
 }
 
 class Cart extends Component {
-  items = [];
-
   constructor(hookID) {
-    super(hookID);
+    super(hookID, false);
+    this.items = [];
+    this.render();
   }
 
   get totalAmount() {
@@ -104,7 +131,12 @@ class Cart extends Component {
     return totalAmount;
   }
 
-  renderCart() {
+  orderProducts() {
+    console.log("Ordering");
+    console.log(this.items);
+  }
+
+  render() {
     const cartEl = this.createRootEl("section", "cart");
     cartEl.innerHTML = `
         <div>
@@ -115,6 +147,10 @@ class Cart extends Component {
     `;
     this.totalAmountEl = cartEl.querySelector("h2");
     this.totalItemsEl = cartEl.querySelector("h4");
+
+    const orderBtn = cartEl.querySelector("button");
+    orderBtn.addEventListener("click", this.orderProducts.bind(this));
+
     return cartEl;
   }
 
@@ -128,13 +164,13 @@ class Cart extends Component {
 }
 
 class RenderShop {
-  constructor(productList, cart) {
-    this.prodList = productList;
-    this.cart = cart;
+  constructor() {
+    this.render();
   }
+
   render() {
-    this.cart.renderCart();
-    this.prodList.renderList();
+    this.cart = new Cart("app");
+    new ProductList("app");
   }
 }
 
@@ -142,12 +178,7 @@ class App {
   static cart;
 
   static init() {
-    const prodList = new ProductList("app");
-    const cart = new Cart("app");
-
-    const shop = new RenderShop(prodList, cart);
-    shop.render();
-
+    const shop = new RenderShop();
     this.cart = shop.cart;
   }
 
