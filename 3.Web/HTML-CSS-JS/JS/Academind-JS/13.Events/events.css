@@ -42,11 +42,34 @@ button:disabled {
   cursor: not-allowed;
 }
 
-#scrollable {
+.scrollable {
   margin-top: 2.5rem;
-  height: 2000px;
+  height: 200px;
   background-color: #eee;
 }
-#scrollable h3 {
+
+.scrollable:last-child {
+  height: 500px;
+}
+
+.droppable {
+  background-color: #ffe0ec;
+}
+
+.scrollable:first-child h3 {
   padding: 1.5rem;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  padding: 1rem;
+  border: 1px solid #ccc;
+}
+
+.highlight {
+  background-color: red;
+  color: white;
 }
