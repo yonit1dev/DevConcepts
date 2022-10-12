@@ -46,3 +46,68 @@ const incomeAmount = taxCalculator(0.3);
 
 console.log(vatAmount(100), incomeAmount(330));
 
+// Closures
+let username = "Yoni";
+
+function greetUser() {
+  //   let name = username;
+  let firstName = "Anna"; // preceeds the outer firstName variable declaration
+  console.log("Hi " + firstName);
+}
+
+let firstName = "Maximilian";
+
+username = "Max";
+
+greetUser();
+
+// Recursion
+function powerOf(x, n) {
+  return n <= 1 ? x : x * powerOf(x, n - 1);
+}
+
+// Loop Variant
+function powerOfLoop(x, n) {
+  let result = 1;
+
+  while (n > 0) {
+    result *= x;
+    n--;
+  }
+
+  return result;
+}
+
+console.log(powerOf(0, 0));
+console.log(powerOfLoop(5, 5));
+
+// Advanced Recursion
+const myself = {
+  name: "Yoni",
+  friends: [
+    {
+      name: "Max",
+      friends: [{ name: "Chris" }],
+    },
+    {
+      name: "Julia",
+    },
+  ],
+};
+
+function friendNames(person) {
+  const friendsName = [];
+
+  if (!person.friends) {
+    return [];
+  }
+
+  for (const friend of person.friends) {
+    friendsName.push(friend.name);
+    friendsName.push(...friendNames(friend));
+  }
+
+  return friendsName;
+}
+
+console.log(friendNames(myself));
