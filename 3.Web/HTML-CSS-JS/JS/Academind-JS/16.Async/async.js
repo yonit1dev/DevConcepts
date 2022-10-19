@@ -26,24 +26,36 @@ const setTimer = (duration) => {
   return promise;
 };
 
-function trackUserHandler() {
-  let positionData;
-  getPos()
-    .then((posData) => {
-      positionData = posData;
-      return setTimer();
-    })
-    .catch((err) => {
-      console.log(err);
-    })
-    .then((data) => {
-      console.log(data, positionData);
-    });
-  setTimer(1000).then(() => {
-    console.log("timer done!");
-  });
+async function trackUserHandler() {
+  // The next two lines, where async and await keywords are used just transform the code below them(then-catch block)
 
-  console.log("Getting location..."); // this executes first before the fetch of location, since the latter is handed off to the browser for execution.
+  try {
+    const posData = await getPos();
+    const timerData = await setTimer(1500);
+
+    console.log(timerData, posData);
+  } catch (error) {
+    console.log(error);
+  }
+
+  //   let positionData;
+  //   getPos()
+  //     .then((posData) => {
+  //       positionData = posData;
+  //       return setTimer(1500);
+  //     })
+  //     .then((data) => {
+  //       console.log(data, positionData);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+
+  //   setTimer(1000).then(() => {
+  //     console.log("timer done!");
+  //   });
+
+  //   console.log("Getting location..."); // this executes first before the fetch of location, since the latter is handed off to the browser for execution.
 }
 
 button.addEventListener("click", trackUserHandler);
