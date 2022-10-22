@@ -60,6 +60,15 @@ async function trackUserHandler() {
 
 button.addEventListener("click", trackUserHandler);
 
+// Race only cares about the fastest promise to execute
+Promise.race([getPos(), setTimer(1000)]).then((data) => {
+  console.log(data);
+});
+
+Promise.all([getPos(), setTimer(1000)]).then((data) => {
+  console.log(data);
+});
+
 // let result = 0;
 // for (let i = 0; i < 100000000; i++) {
 //   result += i;
