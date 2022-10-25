@@ -8,29 +8,34 @@ const fetchPostBtn = document.querySelector("#available-posts button");
 const postList = document.querySelector("ul");
 
 function sendRequests(method, url, data) {
-  const promise = new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest();
+  //   const promise = new Promise((resolve, reject) => {
+  //     const xhr = new XMLHttpRequest();
 
-    // Data Transfer
-    xhr.open(method.toString(), url.toString()); // configuring the request
-    xhr.responseType = "json";
+  //     // Data Transfer
+  //     xhr.open(method.toString(), url.toString()); // configuring the request
+  //     xhr.responseType = "json";
 
-    xhr.addEventListener("load", function () {
-      if (xhr.status >= 200 && xhr.status < 300) {
-        resolve(xhr.response);
-      } else {
-        reject(new Error("Server error! Try again!"));
-      }
-    });
+  //     xhr.addEventListener("load", function () {
+  //       if (xhr.status >= 200 && xhr.status < 300) {
+  //         resolve(xhr.response);
+  //       } else {
+  //         reject(new Error("Server error! Try again!"));
+  //       }
+  //     });
 
-    xhr.addEventListener("error", function () {
-      reject(new Error("Failed to send request!"));
-    });
+  //     xhr.addEventListener("error", function () {
+  //       reject(new Error("Failed to send request!"));
+  //     });
 
-    xhr.send(JSON.stringify(data));
+  //     xhr.send(JSON.stringify(data));
+  //   });
+
+  return fetch(url, {
+    method: method.toString(),
+    body: JSON.stringify(data),
+  }).then((response) => {
+    return response.json();
   });
-
-  return promise;
 }
 
 async function fetchPosts() {
