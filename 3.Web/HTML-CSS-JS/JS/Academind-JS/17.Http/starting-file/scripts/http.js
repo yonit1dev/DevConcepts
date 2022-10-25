@@ -31,28 +31,45 @@ function sendRequests(method, url, data) {
   //   });
 
   return fetch(url, {
+    // headers: {
+    //   "Content-Type": "application/json",
+    // },
     method: method.toString(),
-    body: JSON.stringify(data),
-  }).then((response) => {
-    return response.json();
-  });
+    body: data,
+  })
+    .then((response) => {
+      if (response.status >= 200 && response.status < 300) {
+        return response.json();
+      } else {
+        return response.json().then((error) => {
+          throw new Error("Something went wrong on the server!");
+        });
+      }
+    })
+    .catch(() => {
+      throw new Error("Something went wrong!");
+    });
 }
 
 async function fetchPosts() {
-  let response = await sendRequests(
-    "GET",
-    "https://jsonplaceholder.typicode.com/posts"
-  );
+  try {
+    const response = await sendRequests(
+      "GET",
+      "https://jsonplaceholder.typicode.com/posts"
+    );
 
-  let fetchedPosts = response.slice(0, 15);
+    const fetchedPosts = response.slice(0, 15);
 
-  for (const post of fetchedPosts) {
-    const postEl = document.importNode(postTemplate.content, true);
-    postEl.querySelector("h2").textContent = post.title.toUpperCase();
-    postEl.querySelector("p").textContent = post.body;
-    postEl.querySelector("li").id = post.id;
+    for (const post of fetchedPosts) {
+      const postEl = document.importNode(postTemplate.content, true);
+      postEl.querySelector("h2").textContent = post.title.toUpperCase();
+      postEl.querySelector("p").textContent = post.body;
+      postEl.querySelector("li").id = post.id;
 
-    listElement.append(postEl);
+      listElement.append(postEl);
+    }
+  } catch (error) {
+    alert(error.message);
   }
 }
 
@@ -64,11 +81,12 @@ async function createPost(title, content) {
     userId: userId,
   };
 
-  await sendRequests(
-    "POST",
-    "https://jsonplaceholder.typicode.com/posts",
-    body
-  );
+  const fd = new FormData(form);
+//   fd.append("title", title);
+//   fd.append("body", content);
+  fd.append("userId", userId);
+
+  await sendRequests("POST", "https://jsonplaceholder.typicode.com/posts", fd);
 }
 
 fetchPostBtn.addEventListener("click", () => {
