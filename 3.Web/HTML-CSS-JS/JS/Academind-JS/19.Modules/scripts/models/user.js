@@ -12,17 +12,29 @@ class User {
   get id() {
     return this._id;
   }
+  set id(value) {
+    this._id = value;
+  }
   get firstName() {
     return this._firstName;
+  }
+  set firstName(value) {
+    this._firstName = value;
   }
   get lastName() {
     return this._lastName;
   }
-  get fullName() {
-    return this._fullName;
+  set lastName(value) {
+    this._lastName = value;
   }
   get age() {
     return this._age;
+  }
+  set age(value) {
+    this._age = value;
+  }
+  get fullName() {
+    return this._fullName;
   }
 }
 
