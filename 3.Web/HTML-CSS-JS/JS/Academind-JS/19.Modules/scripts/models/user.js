@@ -38,4 +38,9 @@ class User {
   }
 }
 
+export function doSomething(value) {
+  console.log(value.toString().toUpperCase());
+  console.log("Printed the value in uppercase");
+}
+
 export default User;
