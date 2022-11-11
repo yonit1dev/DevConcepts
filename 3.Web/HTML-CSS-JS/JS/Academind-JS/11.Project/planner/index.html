@@ -5,65 +5,65 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project Board</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./assets/styles/app.css" />
-    <script type="module" src="./assets/scripts/app.js" defer></script>
+    <script src="./assets/scripts/app.js" defer type="module"></script>
   </head>
   <body>
-    <head>
-      <h1 class="heading-text">Project Planner</h1>
-    </head>
-    <main>
-      <div id="backdrop"></div>
-      <div id="add-card">
-        <div class="add-title">New Project</div>
-        <div class="add-fields">
-          <label for="title">Title</label>
-          <input type="text" id="title" placeholder="Grocery Run" />
-          <label for="description">Description</label>
-          <input
-            type="text"
-            id="description"
-            placeholder="Weekly Grocery Shopping"
-          />
-        </div>
-        <div class="add-buttons flex-center">
-          <div class="">
-            <button id="add-project-btn">Add Project</button>
-          </div>
-          <div class="cancel-buttons">
-            <button>Cancel</button>
-            <button>Clear</button>
-          </div>
-        </div>
+    <header>
+      <div class="header-text">
+        <h1>Project Planner</h1>
       </div>
-      <section class="container active-projects">
-        <div id="active-header">
-          <h2 class="active-title">Active Projects</h2>
-          <button class="add-project" id="plus-btn">+</button>
+    </header>
+    <main>
+      <section class="projects">
+        <div class="active-projects">
+          <div class="active-header flex-jc-ac">
+            <h2 class="list-header">Active Projects</h2>
+          </div>
+          <div class="lists">
+            <ul class="active-projects-list">
+              <li
+                id="p1"
+                data-extra-desc="Got lifetime access, but would be nice to finish it soon."
+                class="project-card"
+                draggable="true"
+              >
+                <h2>Finish the Course</h2>
+                <p>Finish the course within the next two weeks.</p>
+                <button class="alt-btn">More Info</button>
+                <button class="main-btn">Done</button>
+              </li>
+              <li
+                id="p2"
+                data-extra-desc="Not really a business topic but still important."
+                class="project-card"
+                draggable="true"
+              >
+                <h2>Buy Groceries</h2>
+                <p>Don't forget to pick up groceries today.</p>
+                <button class="alt-btn">More Info</button>
+                <button class="main-btn">Done</button>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <ul id="active-list">
-            <!-- <div class="project">
-              <h3>Finish the Course</h3>
-              <p>Finish the course within the next two weeks.</p>
-              <div class="buttons">
-                <button id="more-info-btn">More Info</button>
-                <button id="finish-btn">Finish</button>
-              </div>
-            </div> -->
-          </ul>
-        </div>
-      </section>
-      <section class="container finished-projects">
-        <h2 class="finished-title">Finished Projects</h2>
-        <div>
-          <ul id="finished-list"></ul>
+        <div class="finished-projects">
+          <div class="finished-header flex-jc-ac">
+            <h2 class="list-header">Finished Projects</h2>
+          </div>
+          <div class="lists">
+            <ul class="finished-projects-list">
+              <li id="p3" class="project-card" draggable="true">
+                <h2>Book Hotel</h2>
+                <p>
+                  Academind conference takes place in December, don't forget to
+                  book accomodation.
+                </p>
+                <button class="alt-btn">More Info</button>
+                <button class="main-btn">Activate</button>
+              </li>
+            </ul>
+          </div>
         </div>
       </section>
     </main>

@@ -1,236 +1,124 @@
 html {
+  font-family: Verdana, sans-serif;
   box-sizing: border-box;
 }
 
 body {
+  font-size: 100%;
   margin: 0;
   padding: 0;
-  font-family: "Poppins", Verdana, sans-serif;
-  font-size: 100%;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-label {
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-input {
-  margin-bottom: 0.5rem;
-  border: 1px solid #101010;
-  border-radius: 5px;
-  padding: 0.4rem 0.2rem;
-  background: transparent;
-  font: inherit;
-  font-size: 0.8rem;
-  color: #cccccc;
-}
-
-input::placeholder {
-  font-size: 0.75rem;
-  color: #aaa;
-}
-
-input:focus {
-  outline: none;
-}
-
-button {
-  margin: 0;
-  padding: 0.5rem 1.25rem;
-  border: 0;
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: bold;
+  box-sizing: border-box;
 }
 
 ul {
-  margin: 0.75rem 1rem;
-  padding: 0.75rem 0;
   list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.container {
-  width: 80%;
-  margin-top: 1.75rem;
+button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ff0062;
+  font-size: 1rem;
 }
 
-.flex {
+.flex-jc-ac {
   display: flex;
-  /* justify-content: space-evenly; */
+  justify-content: flex-start;
   align-items: center;
 }
 
-.flex-center {
+.header-text {
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 6rem;
+  background-color: #ff0062;
 }
 
-.heading-text {
-  padding: 2rem;
-  background-color: #101010;
-  color: whitesmoke;
-  text-align: center;
+.header-text h1 {
+  color: white;
+}
+
+.projects {
+  width: 75%;
+  margin: 3.5rem auto;
 }
 
 .active-projects {
-  border: 1px solid purple;
-}
-
-#active-header {
-  display: flex;
-  justify-content: space-between;
-  background-color: purple;
-}
-
-#active-header button {
-  padding: 0 0.75rem;
-  background-color: transparent;
-  color: white;
-  font-size: 3rem;
-  cursor: pointer;
+  margin-bottom: 1.5rem;
+  border: 1px solid #870099;
 }
 
 .finished-projects {
-  border: 1px solid rgb(65, 64, 64);
+  border: 1px solid #535353;
 }
 
-.active-title {
-  padding: 1rem 0.75rem;
-  color: whitesmoke;
+.active-projects-list {
+  max-height: 500px;
+  min-height: 20px;
+  overflow: scroll;
 }
 
-.finished-title {
-  padding: 1rem 0.75rem;
-  background-color: rgb(65, 64, 64);
-  color: whitesmoke;
+.finished-projects-list {
+  max-height: 300px;
+  min-height: 10px;
+  overflow: scroll;
 }
 
-.project {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: inherit;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 1.75rem 1.25rem;
-}
-
-.finish-btn {
-  padding: 0.5rem 1.5rem;
-  border: 0.5px solid #ff0062;
-  background-color: #ff0062;
-  color: whitesmoke;
-  transition: all 250ms ease-in-out;
-}
-
-.finish-btn:hover {
-  background-color: #ff2579;
-  color: whitesmoke;
-}
-
-.more-info-btn {
-  background: transparent;
-  border: 0.5px solid #101010;
-  color: #101010;
-  transition: all 250ms ease-in-out;
-}
-
-.more-info-btn:hover {
-  background-color: #101010;
-  color: whitesmoke;
-}
-
-#project-title {
-  margin-left: 2.5rem;
-}
-
-#project-description {
-  margin-left: 2.5rem;
-}
-
-#add-card {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  top: 25%;
-  left: 0;
-  right: 0;
-  width: 25%;
-  background: linear-gradient(
-    180.2deg,
-    rgb(30, 33, 48) 6.8%,
-    rgb(74, 98, 110) 131%
-  );
-  margin: 0 auto;
-  padding: 1.5rem;
-  border-radius: 5px;
+.list-header {
+  padding: 0 1.25rem;
   color: white;
 }
 
-#add-card.visible {
-  display: block;
+.active-header {
+  background-color: #870099;
 }
 
-.add-title {
-  font-size: 1.75rem;
-  text-align: center;
+.finished-header {
+  background-color: #535353;
 }
 
-.add-fields {
-  display: flex;
-  flex-direction: column;
+.droppable {
+  background-color: #dc447e;
 }
 
-#add-project-btn {
-  width: 100%;
-  margin: 1rem 0;
+.project-card {
+  margin: 1rem;
   padding: 0.75rem;
-  border-radius: 5px;
-  background-color: whitesmoke;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  background: white;
+  border-radius: 10px;
 }
 
-.cancel-buttons {
-  display: flex;
-  justify-content: space-between;
+.project-card h2 {
+  margin: 1.5rem 0;
+  color: black;
+}
+
+.project-card p {
+  margin-bottom: 1.5rem;
+  color: black;
+}
+
+#tool-tip {
+  position: absolute;
   margin: 0;
-  font-weight: 400;
-  font-size: 0.8rem;
+  width: 50%;
 }
 
-.cancel-buttons button {
-  padding: 0.5rem 2.5rem;
-  border-radius: 5px;
+.main-btn {
+  background-color: #ff0062;
+  color: white;
+}
+.alt-btn {
+  margin-right: 0.5rem;
+  background-color: transparent;
+  color: #ff0062;
 }
 
-#backdrop {
-  position: fixed;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.75);
-  z-index: 10;
-  pointer-events: none;
-  display: none;
-}
-
-#backdrop.visible {
-  display: block;
-  pointer-events: all;
+.alt-btn:hover {
+  background-color: #ff0062;
+  color: white;
 }
