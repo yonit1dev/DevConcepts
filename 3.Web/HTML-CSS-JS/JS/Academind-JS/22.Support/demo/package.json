@@ -5,11 +5,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "build-dev": "webpack serve --open"
+    "build-dev": "webpack serve --open",
+    "build-watch": "webpack --watch"
   },
   "author": "Yonathan Tessema",
   "license": "ISC",
+  "browserslist": "",
   "devDependencies": {
+    "@babel/core": "^7.20.2",
+    "@babel/preset-env": "^7.20.2",
+    "babel-loader": "^9.1.0",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0",
     "webpack-dev-server": "^4.11.1"
