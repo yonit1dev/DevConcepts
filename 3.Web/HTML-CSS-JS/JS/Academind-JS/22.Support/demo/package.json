@@ -1,0 +1,17 @@
+{
+  "name": "browser-support",
+  "version": "1.0.0",
+  "description": "Browser Support Module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "build-dev": "webpack serve --open"
+  },
+  "author": "Yonathan Tessema",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
