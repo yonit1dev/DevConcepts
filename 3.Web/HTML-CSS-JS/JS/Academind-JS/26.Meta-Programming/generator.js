@@ -1,4 +1,4 @@
-// Generator: generates objects with a next method.
+// Generator: generates objects with a next method. It builds an iterator object. It's a special type of function that generates an iterable object with the next method.
 
 const company = {
   currEmployee: 0,
@@ -11,12 +11,28 @@ const company = {
     this.currEmployee++;
     return nextVal;
   },
+  // For using native js looping methods, since js looks for an iterator symbol when looping mechanisms are called on an iterable object.
   [Symbol.iterator]: function* employeeGenerator() {
-    let iteratedEmp = company.next();
+    let currEmp = 0;
 
-    while (!iteratedEmp.done) {
-      yield iteratedEmp.value;
-      iteratedEmp = company.next();
+    while (currEmp < this.employees.length) {
+      yield this.employees[currEmp];
+      currEmp++;
     }
+    // Using the next function
+
+    // let nextEmp = company.next();
+
+    // while (!nextEmp.done) {
+    //   yield nextEmp.value;
+    //   nextEmp = company.next();
+    // }
   },
 };
+
+for (let employee of company) {
+  console.log(employee);
+}
+
+// Spread operator also looks for the iterator symbol.
+console.log([...company]);
