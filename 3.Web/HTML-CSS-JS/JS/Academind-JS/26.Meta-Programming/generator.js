@@ -3,14 +3,14 @@
 const company = {
   currEmployee: 0,
   employees: ["Max", "Manu", "Anna"],
-  next() {
-    if (this.currEmployee >= this.employees.length) {
-      return { value: this.currEmployee, done: true };
-    }
-    const nextVal = { value: this.employees[this.currEmployee], done: false };
-    this.currEmployee++;
-    return nextVal;
-  },
+  // next() {
+  //   if (this.currEmployee >= this.employees.length) {
+  //     return { value: this.currEmployee, done: true };
+  //   }
+  //   const nextVal = { value: this.employees[this.currEmployee], done: false };
+  //   this.currEmployee++;
+  //   return nextVal;
+  // },
   // For using native js looping methods, since js looks for an iterator symbol when looping mechanisms are called on an iterable object.
   [Symbol.iterator]: function* employeeGenerator() {
     let currEmp = 0;
