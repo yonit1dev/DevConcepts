@@ -5,10 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo-List</title>
-    <script src="./scripts/index.js" defer></script>
+    <style>
+      ul {
+        list-style: none;
+      }
+      .checked {
+        text-decoration: line-through;
+      }
+    </style>
+    <script src="./scripts/app.js" defer></script>
   </head>
   <body>
-    <section id="section">This is a section!</section>
-    <button id="btn">Submit</button>
+    <section id="section"></section>
+    <h4>Today's Todo</h4>
+    <ul id="todo-list"></ul>
+    <form action="" id="todo-form">
+      <input type="text" placeholder="Enter a todo." name="" id="todo-input" />
+      <button id="btn" type="submit">Submit</button>
+    </form>
   </body>
 </html>
