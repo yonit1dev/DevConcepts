@@ -1,28 +1,10 @@
 const baseUrl = "http://www.omdbapi.com/";
+const input = document.querySelector("input");
 
-const fetchData = async (url, parameters) => {
-  let options = {
-    apikey: "12eefb62",
-  };
-
-  for (let param in parameters) {
-    options[param] = parameters[param];
-  }
-
-  console.log(options);
-  const response = await axios.get(url, {
-    params: options,
+const onSearch = (event) => {
+  fetchData(baseUrl, {
+    s: event.target.value,
   });
-
-  return response;
 };
 
-const searchResult = fetchData(baseUrl, {
-  s: "avengers",
-  type: "movie",
-});
-searchResult
-  .then((info) => console.log(info.data))
-  .catch((error) => {
-    console.log(error);
-  });
+input.addEventListener("input", debounce(onSearch, 800));
