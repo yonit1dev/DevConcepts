@@ -23,4 +23,6 @@ h6 {
   padding: 3.5rem 3rem;
   background-image: linear-gradient(to right, #101010, cyan);
   color: white;
+  font-size: 2rem;
+  font-weight: 700;
 }

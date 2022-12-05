@@ -24,5 +24,9 @@ const fetchData = async (url, parameters) => {
     params: options,
   });
 
-  return response;
+  if (response.data.Error) {
+    return [];
+  }
+
+  return response.data.Search;
 };
