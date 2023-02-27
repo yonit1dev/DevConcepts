@@ -1,5 +1,3 @@
 # Dev-Journey
 
-All steps I took as an aspiring Software Engineer.
-
-Feel free to comment by creating an issue.
+Tutorials, exercises, concepts and learning paths I discovered over various programming languages, frameworks and tools.
