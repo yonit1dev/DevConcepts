@@ -1,22 +1,38 @@
 const baseUrl = "http://www.omdbapi.com/";
-const input = document.querySelector("input");
+const root = document.querySelector(".autocomplete");
+root.innerHTML = `
+  <label><b>Search for a Movie</b></label>
+  <input class="input" />
+  <div class="dropdown">
+    <div class="dropdown-menu">
+      <div class="dropdown-content results"></div>
+    </div>
+  </div>
+`;
+
+const dropdown = document.querySelector(".dropdown");
+const input = document.querySelector(".input");
+const results = document.querySelector(".results");
 
 const onSearch = async (event) => {
   const movies = await fetchData(baseUrl, {
     s: event.target.value,
   });
 
-  console.log(movies);
+  dropdown.classList.add("is-active");
 
   for (let movie of movies) {
-    const div = document.createElement("div");
+    const movieEl = document.createElement("a");
+    const poster = movie.Poster === "N/A" ? "" : movie.Poster;
+    movieEl.classList.add("dropdown-item");
 
-    div.innerHTML = `
-        <img src=${movie.Poster} />
-        <h1>${movie.Title}</h1>
+    dropdown.classList.add("is-active");
+    movieEl.innerHTML = `
+        <img src=${poster} class="image" />${movie.Title}
+        <hr class="dropdown-divider" />
     `;
 
-    document.getElementById("movieTarget").appendChild(div);
+    results.appendChild(movieEl);
   }
 };
 

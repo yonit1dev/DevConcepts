@@ -19,10 +19,15 @@ h6 {
   padding: 0;
 }
 
+header {
+  margin-bottom: 2.5rem;
+}
+
 #header-txt {
   padding: 3.5rem 3rem;
   background-image: linear-gradient(to right, #101010, cyan);
   color: white;
+  font-family: Verdana, sans-serif;
   font-size: 2rem;
   font-weight: 700;
 }
