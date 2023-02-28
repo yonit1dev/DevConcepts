@@ -2,10 +2,10 @@ package javaBook.tutorial8;
 
 public class BankAccountMod {
     private String accNumber, accName;
-    private double accBalance;
+    protected double accBalance;
     private static double interestRate = 0;
 
-    BankAccountMod(String AccName, String AccNumber) {
+    public BankAccountMod(String AccName, String AccNumber) {
         this.accName = AccName;
         this.accNumber = AccNumber;
         this.accBalance = 0;
