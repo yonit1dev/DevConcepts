@@ -106,3 +106,4 @@ dist
 # VS Code
 .DS_Store
 .DS_Store.
+.vscode
