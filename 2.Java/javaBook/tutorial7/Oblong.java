@@ -3,36 +3,36 @@ package javaBook.tutorial7;
 public class Oblong {
     private double width, height;
 
-    Oblong(double width, double height) {
+    public Oblong(double width, double height) {
         this.width = width;
         this.height = height;
     }
 
-    void setHeight(double height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    void setWidth(double width) {
+    public void setWidth(double width) {
         this.width = width;
     }
 
-    double getHeight() {
+    public double getHeight() {
         return this.height;
     }
 
-    double getWidth() {
+    public double getWidth() {
         return this.width;
     }
 
-    double calculateArea() {
+    public double calculateArea() {
         return this.width * this.height;
     }
 
-    double calculatePerimeter() {
+    public double calculatePerimeter() {
         return 2 * (this.width + this.height);
     }
 
-    void printInfo() {
+    public void printInfo() {
         System.out.println("Width: " + this.width);
         System.out.println("Height: " + this.height);
 
