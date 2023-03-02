@@ -153,3 +153,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
+# Training projects
+/5.Android/flutter/recipes_tutorial/
+/5.Android/flutter/flutter_in_action/
