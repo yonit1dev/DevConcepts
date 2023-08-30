@@ -1,8 +1,0 @@
-Week 0 - Notes
-
-Week 0 is the first week of the CS50 - Introduction to Computer Science and Programming course.
-It starts off by introducing what computer science - its basic definition and an overall brief of the whole subject. It then delves into explaining how computers work; binary numbers, composition of images and videos and other niche topics.
-
-General programming terms such as Algorithms and Pseudo-code are discussed throughout the lecture. 
-
-Towards the final part, we get introduced to Scratch, which is programming learning environment developed by MIT. It's fun game which teaches the underlying working of programms using fun visual interactions.
