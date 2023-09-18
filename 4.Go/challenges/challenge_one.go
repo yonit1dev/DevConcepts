@@ -6,7 +6,7 @@ import (
 )
 
 func printDivider() {
-	var space = 45
+	var space = 46
 	for space > 0 {
 		if space == 1 {
 			fmt.Print("=\n")
@@ -42,7 +42,7 @@ func randomTripType() (tripType string) {
 }
 
 func generatePrototype() {
-	fmt.Printf("%-20v %-5v %-12v %-5v\n", "Spaceline", "Days", "Trip-type", "Price")
+	fmt.Printf("%-16v %-4v %12v %7v\n", "Spaceline", "Days", "Trip-type", "Price")
 	printDivider()
 
 	var price, days int
@@ -53,7 +53,7 @@ func generatePrototype() {
 		var spaceLine = randomSpaceLine()
 		var tripType = randomTripType()
 
-		fmt.Printf("%-20v %4v %-13v $%4v\n", spaceLine, days, tripType, price)
+		fmt.Printf("%-16v %4v %12v %3v %v\n", spaceLine, days, tripType, "$", price)
 
 	}
 }
