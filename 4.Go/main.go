@@ -13,14 +13,15 @@ func main() {
 	// runBasicsModule()
 	// runControlModule()
 	// runVariableModule()
-	// runChallenges()
+	runChallenges()
 	// runTypesModule()
-	runStringsModule()
+	// runStringsModule()
 }
 
 // challenges
 func runChallenges() {
-	challenges.TicketGenerator()
+	// challenges.TicketGenerator()
+	challenges.VigenereCipher()
 }
 
 // basics module
@@ -64,4 +65,5 @@ func runStringsModule() {
 	string_text.Aliases()
 	string_text.StringManipulation()
 	string_text.Conversions()
+	string_text.Caesar()
 }
