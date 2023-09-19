@@ -44,10 +44,10 @@ func calcTicketPrice(speed int, tripType string) (ticketPrice int) {
 	const priceFactor = 20
 
 	if tripType == "Round-Trip" {
-		return (20 + speed) * 2
+		return (priceFactor + speed) * 2
 	}
 
-	return 20 + speed
+	return priceFactor + speed
 }
 
 func TicketGenerator() {
