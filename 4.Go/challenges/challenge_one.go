@@ -5,18 +5,6 @@ import (
 	"math/rand"
 )
 
-func printDivider() {
-	var space = 46
-	for space > 0 {
-		if space == 1 {
-			fmt.Print("=\n")
-			break
-		}
-		fmt.Print("=")
-		space--
-	}
-}
-
 func randomSpaceLine() (spaceLine string) {
 	switch num := rand.Intn(3); num {
 	case 0:
@@ -35,29 +23,47 @@ func randomTripType() (tripType string) {
 	case 0:
 		return "One Way"
 	case 1:
-		return "Round Trip"
+		return "Round-Trip"
 	default:
 		return "N/A"
 	}
 }
 
-func generatePrototype() {
-	fmt.Printf("%-16v %-4v %12v %7v\n", "Spaceline", "Days", "Trip-type", "Price")
-	printDivider()
+func randomSpeed() (speed int) {
+	const minSpeed = 16
+	const maxSpeed = 30
 
-	var price, days int
+	return minSpeed + (rand.Intn(maxSpeed - minSpeed))
+}
 
-	for count := 0; count < 10; count++ {
-		price = rand.Intn(100)
-		days = rand.Intn(50)
-		var spaceLine = randomSpaceLine()
-		var tripType = randomTripType()
+func calcDuration(speed int, distance int) (duration int) {
+	return ((distance / speed) / 86400) // converting from seconds to days
+}
 
-		fmt.Printf("%-16v %4v %12v %3v %v\n", spaceLine, days, tripType, "$", price)
+func calcTicketPrice(speed int, tripType string) (ticketPrice int) {
+	const priceFactor = 20
 
+	if tripType == "Round-Trip" {
+		return (20 + speed) * 2
 	}
+
+	return 20 + speed
 }
 
 func TicketGenerator() {
-	generatePrototype()
+	const distToMars = 62100000
+
+	fmt.Println("Spaceline           Days     Trip-type     Price($m)")
+	fmt.Println("====================================================")
+
+	for count := 0; count < 10; count++ {
+		spaceline := randomSpaceLine()
+		speed := randomSpeed()
+		tripType := randomTripType()
+		days := calcDuration(speed, distToMars)
+		price := calcTicketPrice(speed, tripType)
+
+		fmt.Printf("%-20v %3v %14v %12v\n", spaceline, days, tripType, price)
+	}
+
 }
