@@ -4,6 +4,8 @@ import (
 	"modules/basics"
 	"modules/challenges"
 	"modules/control"
+	"modules/string_text"
+	"modules/var_types"
 	"modules/variables"
 )
 
@@ -11,7 +13,9 @@ func main() {
 	// runBasicsModule()
 	// runControlModule()
 	// runVariableModule()
-	runChallenges()
+	// runChallenges()
+	// runTypesModule()
+	runStringsModule()
 }
 
 // challenges
@@ -43,4 +47,21 @@ func runControlModule() {
 // variables module
 func runVariableModule() {
 	variables.NewLoops()
+}
+
+// types module
+func runTypesModule() {
+	var_types.PrecisionPoints()
+	var_types.Piggy()
+	var_types.Integers()
+	var_types.ModPiggy()
+	var_types.BigNumbers()
+}
+
+// string and text module
+func runStringsModule() {
+	string_text.Texts()
+	string_text.Aliases()
+	string_text.StringManipulation()
+	string_text.Conversions()
 }
