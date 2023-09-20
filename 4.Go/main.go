@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"modules/basics"
 	"modules/challenges"
 	"modules/control"
+	"modules/functions"
 	"modules/string_text"
 	"modules/var_types"
 	"modules/variables"
@@ -16,12 +18,14 @@ func main() {
 	runChallenges()
 	// runTypesModule()
 	// runStringsModule()
+	// runFunctionModule()
 }
 
 // challenges
 func runChallenges() {
 	// challenges.TicketGenerator()
-	challenges.VigenereCipher()
+	// challenges.VigenereCipher()
+	challenges.DrawTable()
 }
 
 // basics module
@@ -66,4 +70,33 @@ func runStringsModule() {
 	string_text.StringManipulation()
 	string_text.Conversions()
 	string_text.Caesar()
+}
+
+// functions module
+func runFunctionModule() {
+	// temperature convertor
+	kelvin := 0.0
+	anotherKelvin := 233.0
+
+	celsius := functions.KelvinToCelsius(float64(kelvin))
+	anotherCelsius := functions.KelvinToCelsius(float64(anotherKelvin))
+	fahrenheit := functions.CelsiusToFahrenheit(celsius)
+	anotherFahrenheit := functions.KelvinToFahrenheit(kelvin)
+
+	fmt.Printf("%.2fK in Celsius: %.2f\n", kelvin, celsius)
+	fmt.Printf("%.2fK in Celsius: %.2f\n", anotherKelvin, anotherCelsius)
+	fmt.Printf("%.2fC in Fahrenheit: %.2f\n", celsius, fahrenheit)
+	fmt.Printf("%.2fK in Fahrenheit: %.2f\n", kelvin, anotherFahrenheit)
+
+	// methods
+	functions.Types()
+
+	var k functions.Kelvin = 0.0
+	c := k.ToCelsiusK()
+	fmt.Printf("Using methods on Kelvin, %.2fK is %.2f in celsius.\n", k, c)
+
+	functions.MeasureTemp(5, functions.FakeSensor)
+
+	calibration := functions.Calibrate(functions.RealSensor, 10)
+	fmt.Println("Calibrated Temp:", calibration())
 }

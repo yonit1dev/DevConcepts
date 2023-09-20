@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-func generateKey(text string, keyword string) (key string) {
+func generateKey(text string, keyword string) string {
+	var key string
 	var repeatKey = len(text) / len(keyword)
 
 	for i := 0; i < repeatKey; i++ {
