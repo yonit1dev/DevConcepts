@@ -9,7 +9,7 @@ func (c celsius) toFahrenheit() fahrenheit {
 	return fahrenheit(((c * 9.00) / 5.00) + 32.00)
 }
 
-func drawCtoF(c celsius) string {
+func rowData(c celsius) string {
 	f := c.toFahrenheit()
 	return fmt.Sprintf("%-2v %6.2f %-2v %6.2f %v\n", "|", c, "|", f, "|")
 }
@@ -30,7 +30,7 @@ func DrawTable() {
 	var maxTempC celsius = 100.0
 
 	for initTempC <= maxTempC {
-		drawCtoF(initTempC)
+		rowData(initTempC)
 		initTempC += 5.0
 	}
 }
