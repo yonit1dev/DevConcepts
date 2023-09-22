@@ -15,17 +15,19 @@ func main() {
 	// runBasicsModule()
 	// runControlModule()
 	// runVariableModule()
-	runChallenges()
+	// runChallenges()
 	// runTypesModule()
 	// runStringsModule()
 	// runFunctionModule()
+	// runArrayModule()
 }
 
 // challenges
 func runChallenges() {
 	// challenges.TicketGenerator()
 	// challenges.VigenereCipher()
-	challenges.DrawTable()
+	// challenges.DrawTable()
+	challenges.ConwayGameOfLife()
 }
 
 // basics module
@@ -99,4 +101,12 @@ func runFunctionModule() {
 
 	calibration := functions.Calibrate(functions.RealSensor, 10)
 	fmt.Println("Calibrated Temp:", calibration())
+}
+
+// arrays module
+func runArrayModule() {
+	// collections.DemoArray()
+	// collections.Slices()
+	// collections.DecMaps()
+	// collections.WordCounter()
 }
