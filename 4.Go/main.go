@@ -20,6 +20,7 @@ func main() {
 	// runStringsModule()
 	// runFunctionModule()
 	// runArrayModule()
+	runOODModule()
 }
 
 // challenges
@@ -109,4 +110,14 @@ func runArrayModule() {
 	// collections.Slices()
 	// collections.DecMaps()
 	// collections.WordCounter()
+}
+
+// ood module
+func runOODModule() {
+	// ood.Structs()
+	// ood.Marshalling()
+	// ood.Coordinates()
+	// ood.Composition()
+	// ood.RoverGPS()
+	// ood.Interfaces()
 }
