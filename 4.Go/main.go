@@ -20,7 +20,8 @@ func main() {
 	// runStringsModule()
 	// runFunctionModule()
 	// runArrayModule()
-	runOODModule()
+	// runOODModule()
+	// runPointersModule()
 }
 
 // challenges
@@ -120,4 +121,14 @@ func runOODModule() {
 	// ood.Composition()
 	// ood.RoverGPS()
 	// ood.Interfaces()
+}
+
+// pointers module
+func runPointersModule() {
+	// pointers.Memory()
+	// pointers.PointersforPointing()
+	// pointers.PointersWithStructs()
+	// pointers.PointersWithArrays()
+	// pointers.Parameters()
+	// pointers.Interior()
 }
