@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"modules/basics"
 	"modules/challenges"
+	"modules/concurrency"
 	"modules/control"
+	"modules/errors"
 	"modules/functions"
 	"modules/string_text"
 	"modules/var_types"
@@ -22,6 +24,8 @@ func main() {
 	// runArrayModule()
 	// runOODModule()
 	// runPointersModule()
+	// runErrorsModule()
+	runConcurrencyModule()
 }
 
 // challenges
@@ -131,4 +135,16 @@ func runPointersModule() {
 	// pointers.PointersWithArrays()
 	// pointers.Parameters()
 	// pointers.Interior()
+}
+
+// errors module
+func runErrorsModule() {
+	// errors.ReturnError()
+	errors.WritingToFile()
+}
+
+// concurrency module
+func runConcurrencyModule() {
+	// concurrency.Concurrent()
+	concurrency.ChannelsCommunication()
 }
