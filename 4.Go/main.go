@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	basicfunctionality "modules/basic_functionality"
 	"modules/basics"
 	"modules/challenges"
 	"modules/concurrency"
@@ -25,7 +26,8 @@ func main() {
 	// runOODModule()
 	// runPointersModule()
 	// runErrorsModule()
-	runConcurrencyModule()
+	// runConcurrencyModule()
+	runCommandLineArgModule()
 }
 
 // challenges
@@ -147,4 +149,9 @@ func runErrorsModule() {
 func runConcurrencyModule() {
 	// concurrency.Concurrent()
 	concurrency.ChannelsCommunication()
+}
+
+// command line module
+func runCommandLineArgModule() {
+	basicfunctionality.CommandLineArgs()
 }
