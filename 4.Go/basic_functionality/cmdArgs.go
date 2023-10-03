@@ -3,15 +3,16 @@ package basicfunctionality
 import (
 	"fmt"
 	"os"
+	"strings"
 )
 
+// Outputting command line arguments
 func CommandLineArgs() {
-	var s, sep string
 
-	for i := 1; i < len(os.Args); i++ {
-		s += sep + os.Args[i]
-		sep = " "
+	for i, arg := range os.Args[1:] {
+		fmt.Printf("Index: %v and Argument: %v\n", i, arg)
 	}
 
-	fmt.Println("Command Line Args:", s)
+	// Improved Way
+	fmt.Println("Enhanced Cmd Args:", strings.Join(os.Args[1:], " "))
 }

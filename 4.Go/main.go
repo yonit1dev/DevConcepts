@@ -4,7 +4,6 @@ import (
 	"fmt"
 	basicfunctionality "modules/basic_functionality"
 	"modules/basics"
-	"modules/challenges"
 	"modules/concurrency"
 	"modules/control"
 	"modules/errors"
@@ -27,7 +26,7 @@ func main() {
 	// runPointersModule()
 	// runErrorsModule()
 	// runConcurrencyModule()
-	runCommandLineArgModule()
+	runBasicFnModule()
 }
 
 // challenges
@@ -35,7 +34,7 @@ func runChallenges() {
 	// challenges.TicketGenerator()
 	// challenges.VigenereCipher()
 	// challenges.DrawTable()
-	challenges.ConwayGameOfLife()
+	// challenges.ConwayGameOfLife()
 }
 
 // basics module
@@ -151,7 +150,13 @@ func runConcurrencyModule() {
 	concurrency.ChannelsCommunication()
 }
 
-// command line module
-func runCommandLineArgModule() {
-	basicfunctionality.CommandLineArgs()
+// basic functionality module
+func runBasicFnModule() {
+	// basicfunctionality.CommandLineArgs()
+	// basicfunctionality.DuplicateLines()
+	// basicfunctionality.SecondEnhancedDuplicateLines()
+	// basicfunctionality.GIFGenerator()
+	// basicfunctionality.WebFn()
+	// basicfunctionality.WebFnServer()
+	basicfunctionality.CountRequest()
 }
