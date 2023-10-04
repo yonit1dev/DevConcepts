@@ -8,6 +8,7 @@ import (
 	"modules/control"
 	"modules/errors"
 	"modules/functions"
+	"modules/pointers"
 	"modules/string_text"
 	"modules/var_types"
 	"modules/variables"
@@ -23,10 +24,10 @@ func main() {
 	// runFunctionModule()
 	// runArrayModule()
 	// runOODModule()
-	// runPointersModule()
+	runPointersModule()
 	// runErrorsModule()
 	// runConcurrencyModule()
-	runBasicFnModule()
+	// runBasicFnModule()
 }
 
 // challenges
@@ -136,6 +137,7 @@ func runPointersModule() {
 	// pointers.PointersWithArrays()
 	// pointers.Parameters()
 	// pointers.Interior()
+	pointers.EchoFlag()
 }
 
 // errors module
