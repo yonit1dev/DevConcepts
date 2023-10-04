@@ -2,6 +2,11 @@ package pointers
 
 import "fmt"
 
+// this is an initialization function that's not called but runs when the package is referenced.
+func init() {
+	fmt.Println("Pointers module")
+}
+
 func Memory() {
 	someString := "Ethiopia"
 

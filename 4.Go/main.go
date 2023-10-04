@@ -2,13 +2,12 @@ package main
 
 import (
 	"fmt"
-	basicfunctionality "modules/basic_functionality"
 	"modules/basics"
 	"modules/concurrency"
 	"modules/control"
 	"modules/errors"
 	"modules/functions"
-	"modules/pointers"
+	numsprops "modules/numsProps"
 	"modules/string_text"
 	"modules/var_types"
 	"modules/variables"
@@ -24,10 +23,11 @@ func main() {
 	// runFunctionModule()
 	// runArrayModule()
 	// runOODModule()
-	runPointersModule()
+	// runPointersModule()
 	// runErrorsModule()
 	// runConcurrencyModule()
 	// runBasicFnModule()
+	runNumberModule()
 }
 
 // challenges
@@ -137,7 +137,7 @@ func runPointersModule() {
 	// pointers.PointersWithArrays()
 	// pointers.Parameters()
 	// pointers.Interior()
-	pointers.EchoFlag()
+	// pointers.EchoFlag()
 }
 
 // errors module
@@ -160,5 +160,11 @@ func runBasicFnModule() {
 	// basicfunctionality.GIFGenerator()
 	// basicfunctionality.WebFn()
 	// basicfunctionality.WebFnServer()
-	basicfunctionality.CountRequest()
+	// basicfunctionality.CountRequest()
+	// basicfunctionality.PopulationCount()
+}
+
+// numbers module
+func runNumberModule() {
+	numsprops.IntegerProps()
 }
