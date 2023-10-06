@@ -61,21 +61,25 @@ func StringManipulation() {
 	fmt.Println(string(b), s)
 
 	// buffer method in bytes
-	fmt.Println(enhancedCommaInsertor("yonathan"))
+	fmt.Println(enhancedCommaInsertor("1234567"))
 }
 
 func enhancedCommaInsertor(s string) string {
 	var buf bytes.Buffer
+	stringLength := len(s)
 
-	if len(s) <= 3 {
+	if stringLength <= 3 {
 		return s
 	}
 
-	for i, r := range s {
-		if i > 0 && (i+1)%3 == 0 {
+	for i, v := range s {
+		buf.WriteRune(v)
+
+		remDigits := s[i+1:]
+
+		if len(remDigits)%3 == 0 && len(remDigits) != 0 {
 			buf.WriteByte(',')
 		}
-		buf.WriteRune(r)
 	}
 
 	return buf.String()
