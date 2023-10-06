@@ -1,6 +1,7 @@
 package godetails
 
 import (
+	"bytes"
 	"fmt"
 	"strings"
 	"unicode/utf8"
@@ -49,6 +50,35 @@ func StringManipulation() {
 
 	// removing directories paths
 	fmt.Println(baseName("user/desktop/main.go"))
+
+	// strings and bytes
+	b := []byte(s)
+	fmt.Println(b)
+
+	// bytes are mutable
+	b[0] = 'A'
+
+	fmt.Println(string(b), s)
+
+	// buffer method in bytes
+	fmt.Println(enhancedCommaInsertor("yonathan"))
+}
+
+func enhancedCommaInsertor(s string) string {
+	var buf bytes.Buffer
+
+	if len(s) <= 3 {
+		return s
+	}
+
+	for i, r := range s {
+		if i > 0 && (i+1)%3 == 0 {
+			buf.WriteByte(',')
+		}
+		buf.WriteRune(r)
+	}
+
+	return buf.String()
 }
 
 func baseName(path string) string {
