@@ -1,4 +1,4 @@
-package numsprops
+package godetails
 
 import "fmt"
 

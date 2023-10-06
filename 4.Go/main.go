@@ -7,7 +7,7 @@ import (
 	"modules/control"
 	"modules/errors"
 	"modules/functions"
-	numsprops "modules/numsProps"
+	godetails "modules/goDetails"
 	"modules/string_text"
 	"modules/var_types"
 	"modules/variables"
@@ -27,7 +27,7 @@ func main() {
 	// runErrorsModule()
 	// runConcurrencyModule()
 	// runBasicFnModule()
-	runNumberModule()
+	runGoDetailsModule()
 }
 
 // challenges
@@ -164,7 +164,10 @@ func runBasicFnModule() {
 	// basicfunctionality.PopulationCount()
 }
 
-// numbers module
-func runNumberModule() {
-	numsprops.IntegerProps()
+// details module
+func runGoDetailsModule() {
+	// godetails.IntegerProps()
+	// godetails.StringProps()
+	// godetails.StringProcessing()
+	godetails.StringManipulation()
 }
