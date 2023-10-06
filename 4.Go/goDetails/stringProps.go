@@ -64,6 +64,28 @@ func StringManipulation() {
 	fmt.Println(enhancedCommaInsertor("1234567"))
 }
 
+func StringAnagrams(s1, s2 string) {
+	s1 = strings.ToLower(s1)
+	s2 = strings.ToLower(s2)
+
+	sum1, sum2 := 0, 0
+
+	for _, b := range s1 {
+		sum1 += int(b)
+	}
+
+	for _, b := range s2 {
+		sum2 += int(b)
+	}
+
+	if sum1 == sum2 {
+		fmt.Println(s1, "and", s2, "are anagrams")
+		return
+	}
+
+	fmt.Println(s1, "and", s2, "are not anagrams")
+}
+
 func enhancedCommaInsertor(s string) string {
 	var buf bytes.Buffer
 	stringLength := len(s)

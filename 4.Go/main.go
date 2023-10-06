@@ -169,5 +169,6 @@ func runGoDetailsModule() {
 	// godetails.IntegerProps()
 	// godetails.StringProps()
 	// godetails.StringProcessing()
-	godetails.StringManipulation()
+	// godetails.StringManipulation()
+	godetails.StringAnagrams("silent", "listen")
 }
