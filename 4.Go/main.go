@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"modules/basics"
+	"modules/collections"
 	"modules/concurrency"
 	"modules/control"
 	"modules/errors"
@@ -117,6 +118,7 @@ func runArrayModule() {
 	// collections.Slices()
 	// collections.DecMaps()
 	// collections.WordCounter()
+	collections.MoreOnArrays()
 }
 
 // ood module
@@ -170,5 +172,6 @@ func runGoDetailsModule() {
 	// godetails.StringProps()
 	// godetails.StringProcessing()
 	// godetails.StringManipulation()
-	godetails.StringAnagrams("silent", "listen")
+	// godetails.StringAnagrams("silent", "listen")
+	fmt.Println(godetails.RemoveSliceElements([]int{1, 2, 3, 4}, 1))
 }

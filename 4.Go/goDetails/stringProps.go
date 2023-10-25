@@ -127,3 +127,8 @@ func insertComma(s string) string {
 	}
 	return insertComma(s[:n-3]) + "," + s[n-3:]
 }
+
+func RemoveSliceElements(slice []int, pos int) []int {
+	copy(slice[pos:], slice[pos+1:])
+	return slice[:len(slice)-1]
+}

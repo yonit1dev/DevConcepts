@@ -35,3 +35,10 @@ func DemoArray() {
 		fmt.Println(i, planet)
 	}
 }
+
+func MoreOnArrays() {
+	// dynamic literal initialization
+	q := [...]int{1, 2, 3}
+	fmt.Println(q)
+
+}
