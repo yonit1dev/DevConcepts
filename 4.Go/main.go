@@ -173,5 +173,10 @@ func runGoDetailsModule() {
 	// godetails.StringProcessing()
 	// godetails.StringManipulation()
 	// godetails.StringAnagrams("silent", "listen")
-	fmt.Println(godetails.RemoveSliceElements([]int{1, 2, 3, 4}, 1))
+	// fmt.Println(godetails.RemoveSliceElements([]int{1, 2, 3, 4}, 1))
+	// godetails.StructProps()
+	values := []int{54, 23, 4, 5}
+	godetails.InsertionSort(values)
+
+	fmt.Println(values)
 }
